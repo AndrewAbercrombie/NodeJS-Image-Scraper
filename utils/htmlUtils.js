@@ -21,13 +21,7 @@ exports.getImageSrcFromTag = async function getImageSrcFromTag(imageTag) {
   return imageTag.getAttribute('src');
 }
 
-exports.makeDownloadableUrl = async function makeDownloadableUrl(imgSrc, url) {
-  if (imgSrc.startsWith('/')) {
-    return `${url}${imgSrc}`;
-  } else {
-    return imgSrc;
-  }
-}
+
 
 
 
