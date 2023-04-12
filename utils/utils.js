@@ -1,4 +1,4 @@
-exports.makeDownloadableUrl = function makeDownloadableUrl(imgSrc, url) {
+exports.makeDownloadableUrl = async function makeDownloadableUrl(imgSrc, url) {
   if (imgSrc.startsWith('/')) {
     return `${url}${imgSrc}`;
   } else {
@@ -6,10 +6,9 @@ exports.makeDownloadableUrl = function makeDownloadableUrl(imgSrc, url) {
   }
 }
 
-exports.removeEndingUrlSlash = function removeEndingUrlSlash(url) {
+exports.removeEndingUrlSlash = async function removeEndingUrlSlash(url) {
   while (url.endsWith('/')) {
-    url = url.slice(0, -1);
+      url = url.slice(0, -1);
     }
-    
   return url;
 }
