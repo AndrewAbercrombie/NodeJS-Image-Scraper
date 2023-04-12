@@ -1,7 +1,7 @@
 const {downloadHTMLContent, getImageTags, getImageSrcFromTag} = require('./utils/htmlUtils.js');
-const {makeDownloadableUrl} = require('./utils/utils.js');
+const {makeDownloadableUrl, removeEndingUrlSlash} = require('./utils/utils.js');
 
-const url = "https://solstamps.io";
+const url = removeEndingUrlSlash("https://solstamps.io");
 
 (async () => {
   const {html, error} = await downloadHTMLContent(url);
@@ -13,7 +13,7 @@ const url = "https://solstamps.io";
 
   const images = await getImageTags(html);
   const imageSrcs = await Promise.all(images.map(async (image) => {
-    return await makeDownloadableUrl(await getImageSrcFromTag(image), url);
+    return makeDownloadableUrl(await getImageSrcFromTag(image), url);
   }));
 
   console.log(imageSrcs);
