@@ -29,4 +29,8 @@ exports.removeHttpOrHttps = async function removeHttpOrHttps(url) {
   return url;
 }
 
+exports.removeDupes = async function removeDupes(arr) {
+  return arr.filter((item, index) => arr.indexOf(item) === index);
+}
+
 exports.removeAnything
